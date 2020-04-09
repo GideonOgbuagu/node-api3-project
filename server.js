@@ -10,7 +10,11 @@ const userRouter = require("./users/userRouter.js");
 server.use('/api/users', userRouter);
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  const message = process.env.MESSAGE || "Hellooo from the localhost";
+  res.send(`
+  <h1>${message}</h1>
+  <h2>Welcome to another Users and Posts API<h2/>
+  `);
 });
 
 //custom middleware
