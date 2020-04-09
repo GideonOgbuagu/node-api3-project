@@ -75,7 +75,7 @@ router.get('/:id/posts', validateUserId, (req, res) => {
 router.delete('/:id', validateUserId, (req, res) => {
   const { id } = req.user;
   User.remove(id)
-      .then(() => res.status(204).json({ message: "user deleted"}))
+      .then(() => res.status(200).json({ message: "user deleted"}))
       .catch(err => {
         res.status(500).json({error: "Error deleting user"})
       })
